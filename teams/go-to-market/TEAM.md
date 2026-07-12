@@ -13,6 +13,9 @@ includes:
   - ../../skills/gtm-motions/SKILL.md
   - ../../skills/gtm-strategy/SKILL.md
   - ../../skills/ideal-customer-profile/SKILL.md
+  - ../../skills/delegate-with-tree/SKILL.md
+  - ../../skills/acceptance-criteria/SKILL.md
+  - ../../skills/document-template/SKILL.md
 tags:
   - product-management
 ---

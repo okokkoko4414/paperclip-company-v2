@@ -12,6 +12,9 @@ includes:
   - ../../skills/positioning-ideas/SKILL.md
   - ../../skills/product-name/SKILL.md
   - ../../skills/value-prop-statements/SKILL.md
+  - ../../skills/delegate-with-tree/SKILL.md
+  - ../../skills/acceptance-criteria/SKILL.md
+  - ../../skills/document-template/SKILL.md
 tags:
   - product-management
 ---

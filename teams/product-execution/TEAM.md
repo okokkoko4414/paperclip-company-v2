@@ -31,6 +31,9 @@ includes:
   - ../../skills/test-scenarios/SKILL.md
   - ../../skills/user-stories/SKILL.md
   - ../../skills/wwas/SKILL.md
+  - ../../skills/delegate-with-tree/SKILL.md
+  - ../../skills/acceptance-criteria/SKILL.md
+  - ../../skills/document-template/SKILL.md
 tags:
   - product-management
 ---

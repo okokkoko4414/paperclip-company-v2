@@ -16,6 +16,9 @@ includes:
   - ../../skills/sentiment-analysis/SKILL.md
   - ../../skills/user-personas/SKILL.md
   - ../../skills/user-segmentation/SKILL.md
+  - ../../skills/delegate-with-tree/SKILL.md
+  - ../../skills/acceptance-criteria/SKILL.md
+  - ../../skills/document-template/SKILL.md
 tags:
   - product-management
 ---
