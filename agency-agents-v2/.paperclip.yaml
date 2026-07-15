@@ -1,0 +1,508 @@
+schema: paperclip/v1
+agents:
+  academic-anthropologist:
+    adapter:
+      type: claude_local
+  academic-geographer:
+    adapter:
+      type: claude_local
+  academic-historian:
+    adapter:
+      type: claude_local
+  academic-narratologist:
+    adapter:
+      type: claude_local
+  academic-psychologist:
+    adapter:
+      type: claude_local
+  accounts-payable-agent:
+    adapter:
+      type: claude_local
+  agentic-identity-trust:
+    adapter:
+      type: claude_local
+  agents-orchestrator:
+    adapter:
+      type: claude_local
+  automation-governance-architect:
+    adapter:
+      type: claude_local
+  blender-addon-engineer:
+    adapter:
+      type: claude_local
+  blockchain-security-auditor:
+    adapter:
+      type: claude_local
+  ceo:
+    adapter:
+      type: claude_local
+  chief-of-staff:
+    adapter:
+      type: claude_local
+  cmo:
+    adapter:
+      type: claude_local
+  compliance-auditor:
+    adapter:
+      type: claude_local
+  corporate-training-designer:
+    adapter:
+      type: claude_local
+  creative-director:
+    adapter:
+      type: claude_local
+  data-consolidation-agent:
+    adapter:
+      type: claude_local
+  design-brand-guardian:
+    adapter:
+      type: claude_local
+  design-image-prompt-engineer:
+    adapter:
+      type: claude_local
+  design-inclusive-visuals-specialist:
+    adapter:
+      type: claude_local
+  design-ui-designer:
+    adapter:
+      type: claude_local
+  design-ux-architect:
+    adapter:
+      type: claude_local
+  design-ux-researcher:
+    adapter:
+      type: claude_local
+  design-visual-storyteller:
+    adapter:
+      type: claude_local
+  design-whimsy-injector:
+    adapter:
+      type: claude_local
+  engineering-ai-data-remediation-engineer:
+    adapter:
+      type: claude_local
+  engineering-ai-engineer:
+    adapter:
+      type: claude_local
+  engineering-autonomous-optimization-architect:
+    adapter:
+      type: claude_local
+  engineering-backend-architect:
+    adapter:
+      type: claude_local
+  engineering-code-reviewer:
+    adapter:
+      type: claude_local
+  engineering-database-optimizer:
+    adapter:
+      type: claude_local
+  engineering-data-engineer:
+    adapter:
+      type: claude_local
+  engineering-devops-automator:
+    adapter:
+      type: claude_local
+  engineering-embedded-firmware-engineer:
+    adapter:
+      type: claude_local
+  engineering-feishu-integration-developer:
+    adapter:
+      type: claude_local
+  engineering-frontend-developer:
+    adapter:
+      type: claude_local
+  engineering-git-workflow-master:
+    adapter:
+      type: claude_local
+  engineering-incident-response-commander:
+    adapter:
+      type: claude_local
+  engineering-mobile-app-builder:
+    adapter:
+      type: claude_local
+  engineering-rapid-prototyper:
+    adapter:
+      type: claude_local
+  engineering-security-engineer:
+    adapter:
+      type: claude_local
+  engineering-senior-developer:
+    adapter:
+      type: claude_local
+  engineering-software-architect:
+    adapter:
+      type: claude_local
+  engineering-solidity-smart-contract-engineer:
+    adapter:
+      type: claude_local
+  engineering-sre:
+    adapter:
+      type: claude_local
+  engineering-technical-writer:
+    adapter:
+      type: claude_local
+  engineering-threat-detection-engineer:
+    adapter:
+      type: claude_local
+  engineering-wechat-mini-program-developer:
+    adapter:
+      type: claude_local
+  game-audio-engineer:
+    adapter:
+      type: claude_local
+  game-designer:
+    adapter:
+      type: claude_local
+  game-dev-director:
+    adapter:
+      type: claude_local
+  godot-gameplay-scripter:
+    adapter:
+      type: claude_local
+  godot-multiplayer-engineer:
+    adapter:
+      type: claude_local
+  godot-shader-developer:
+    adapter:
+      type: claude_local
+  government-digital-presales-consultant:
+    adapter:
+      type: claude_local
+  healthcare-marketing-compliance:
+    adapter:
+      type: claude_local
+  identity-graph-operator:
+    adapter:
+      type: claude_local
+  level-designer:
+    adapter:
+      type: claude_local
+  lsp-index-engineer:
+    adapter:
+      type: claude_local
+  macos-spatial-metal-engineer:
+    adapter:
+      type: claude_local
+  marketing-ai-citation-strategist:
+    adapter:
+      type: claude_local
+  marketing-app-store-optimizer:
+    adapter:
+      type: claude_local
+  marketing-baidu-seo-specialist:
+    adapter:
+      type: claude_local
+  marketing-bilibili-content-strategist:
+    adapter:
+      type: claude_local
+  marketing-book-co-author:
+    adapter:
+      type: claude_local
+  marketing-carousel-growth-engine:
+    adapter:
+      type: claude_local
+  marketing-china-ecommerce-operator:
+    adapter:
+      type: claude_local
+  marketing-content-creator:
+    adapter:
+      type: claude_local
+  marketing-cross-border-ecommerce:
+    adapter:
+      type: claude_local
+  marketing-douyin-strategist:
+    adapter:
+      type: claude_local
+  marketing-growth-hacker:
+    adapter:
+      type: claude_local
+  marketing-instagram-curator:
+    adapter:
+      type: claude_local
+  marketing-kuaishou-strategist:
+    adapter:
+      type: claude_local
+  marketing-linkedin-content-creator:
+    adapter:
+      type: claude_local
+  marketing-livestream-commerce-coach:
+    adapter:
+      type: claude_local
+  marketing-podcast-strategist:
+    adapter:
+      type: claude_local
+  marketing-private-domain-operator:
+    adapter:
+      type: claude_local
+  marketing-reddit-community-builder:
+    adapter:
+      type: claude_local
+  marketing-seo-specialist:
+    adapter:
+      type: claude_local
+  marketing-short-video-editing-coach:
+    adapter:
+      type: claude_local
+  marketing-social-media-strategist:
+    adapter:
+      type: claude_local
+  marketing-tiktok-strategist:
+    adapter:
+      type: claude_local
+  marketing-twitter-engager:
+    adapter:
+      type: claude_local
+  marketing-wechat-official-account:
+    adapter:
+      type: claude_local
+  marketing-weibo-strategist:
+    adapter:
+      type: claude_local
+  marketing-xiaohongshu-specialist:
+    adapter:
+      type: claude_local
+  marketing-zhihu-strategist:
+    adapter:
+      type: claude_local
+  narrative-designer:
+    adapter:
+      type: claude_local
+  paid-media-auditor:
+    adapter:
+      type: claude_local
+  paid-media-creative-strategist:
+    adapter:
+      type: claude_local
+  paid-media-paid-social-strategist:
+    adapter:
+      type: claude_local
+  paid-media-ppc-strategist:
+    adapter:
+      type: claude_local
+  paid-media-programmatic-buyer:
+    adapter:
+      type: claude_local
+  paid-media-search-query-analyst:
+    adapter:
+      type: claude_local
+  paid-media-tracking-specialist:
+    adapter:
+      type: claude_local
+  product-behavioral-nudge-engine:
+    adapter:
+      type: claude_local
+  product-feedback-synthesizer:
+    adapter:
+      type: claude_local
+  product-manager:
+    adapter:
+      type: claude_local
+  product-sprint-prioritizer:
+    adapter:
+      type: claude_local
+  product-trend-researcher:
+    adapter:
+      type: claude_local
+  project-management-experiment-tracker:
+    adapter:
+      type: claude_local
+  project-management-jira-workflow-steward:
+    adapter:
+      type: claude_local
+  project-management-project-shepherd:
+    adapter:
+      type: claude_local
+  project-management-studio-operations:
+    adapter:
+      type: claude_local
+  project-management-studio-producer:
+    adapter:
+      type: claude_local
+  project-manager-senior:
+    adapter:
+      type: claude_local
+  qa-director:
+    adapter:
+      type: claude_local
+  recruitment-specialist:
+    adapter:
+      type: claude_local
+  report-distribution-agent:
+    adapter:
+      type: claude_local
+  roblox-avatar-creator:
+    adapter:
+      type: claude_local
+  roblox-experience-designer:
+    adapter:
+      type: claude_local
+  roblox-systems-scripter:
+    adapter:
+      type: claude_local
+  sales-account-strategist:
+    adapter:
+      type: claude_local
+  sales-coach:
+    adapter:
+      type: claude_local
+  sales-data-extraction-agent:
+    adapter:
+      type: claude_local
+  sales-deal-strategist:
+    adapter:
+      type: claude_local
+  sales-discovery-coach:
+    adapter:
+      type: claude_local
+  sales-engineer:
+    adapter:
+      type: claude_local
+  sales-outbound-strategist:
+    adapter:
+      type: claude_local
+  sales-pipeline-analyst:
+    adapter:
+      type: claude_local
+  sales-proposal-strategist:
+    adapter:
+      type: claude_local
+  specialized-cultural-intelligence-strategist:
+    adapter:
+      type: claude_local
+  specialized-developer-advocate:
+    adapter:
+      type: claude_local
+  specialized-document-generator:
+    adapter:
+      type: claude_local
+  specialized-french-consulting-market:
+    adapter:
+      type: claude_local
+  specialized-korean-business-navigator:
+    adapter:
+      type: claude_local
+  specialized-mcp-builder:
+    adapter:
+      type: claude_local
+  specialized-model-qa:
+    adapter:
+      type: claude_local
+  specialized-salesforce-architect:
+    adapter:
+      type: claude_local
+  specialized-workflow-architect:
+    adapter:
+      type: claude_local
+  study-abroad-advisor:
+    adapter:
+      type: claude_local
+  supply-chain-strategist:
+    adapter:
+      type: claude_local
+  support-analytics-reporter:
+    adapter:
+      type: claude_local
+  support-executive-summary-generator:
+    adapter:
+      type: claude_local
+  support-finance-tracker:
+    adapter:
+      type: claude_local
+  support-infrastructure-maintainer:
+    adapter:
+      type: claude_local
+  support-legal-compliance-checker:
+    adapter:
+      type: claude_local
+  support-support-responder:
+    adapter:
+      type: claude_local
+  technical-artist:
+    adapter:
+      type: claude_local
+  terminal-integration-specialist:
+    adapter:
+      type: claude_local
+  testing-accessibility-auditor:
+    adapter:
+      type: claude_local
+  testing-api-tester:
+    adapter:
+      type: claude_local
+  testing-evidence-collector:
+    adapter:
+      type: claude_local
+  testing-performance-benchmarker:
+    adapter:
+      type: claude_local
+  testing-reality-checker:
+    adapter:
+      type: claude_local
+  testing-test-results-analyzer:
+    adapter:
+      type: claude_local
+  testing-tool-evaluator:
+    adapter:
+      type: claude_local
+  testing-workflow-optimizer:
+    adapter:
+      type: claude_local
+  unity-architect:
+    adapter:
+      type: claude_local
+  unity-editor-tool-developer:
+    adapter:
+      type: claude_local
+  unity-multiplayer-engineer:
+    adapter:
+      type: claude_local
+  unity-shader-graph-artist:
+    adapter:
+      type: claude_local
+  unreal-multiplayer-architect:
+    adapter:
+      type: claude_local
+  unreal-systems-engineer:
+    adapter:
+      type: claude_local
+  unreal-technical-artist:
+    adapter:
+      type: claude_local
+  unreal-world-builder:
+    adapter:
+      type: claude_local
+  visionos-spatial-engineer:
+    adapter:
+      type: claude_local
+  vp-engineering:
+    adapter:
+      type: claude_local
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+  vp-operations:
+    adapter:
+      type: claude_local
+  vp-product:
+    adapter:
+      type: claude_local
+  vp-sales:
+    adapter:
+      type: claude_local
+  xr-cockpit-interaction-specialist:
+    adapter:
+      type: claude_local
+  xr-director:
+    adapter:
+      type: claude_local
+  xr-immersive-developer:
+    adapter:
+      type: claude_local
+  xr-interface-architect:
+    adapter:
+      type: claude_local
+  zk-steward:
+    adapter:
+      type: claude_local
