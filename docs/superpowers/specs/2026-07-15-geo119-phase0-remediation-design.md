@@ -89,43 +89,34 @@ grep "frontmatter.adapterType" /home/ok2049/paperclip/server/src/services/compan
 
 ---
 
-## 动作 2：模板层双重防御（R4）
+## 动作 2：模板 adapterType 覆盖验证（R4）
 
 ### 当前状态
 
-- **B（superpowers-v2）**：用户已手动添加 `adapter.type: claude_local` 到全部 4 个 agent。✅ 已完成。
-- **C（agency-agents-v2）**：`agency-agents/.paperclip.yaml` 当前只有 `vp-engineering`（GH_TOKEN 输入，无 adapter）。其余 166 个 agent 缺失。❌ 需补。
+- **B（superpowers-v2）**：用户已手动添加 `adapter.type: claude_local` 到全部 4 个 agent 的 `.paperclip.yaml`。✅
+- **C（agency-agents-v2）**：167 个 AGENTS.md 实测 167/167 含 `adapterType: claude_local` frontmatter。✅
 
 ### 方案
 
-为 C 模板的 `agency-agents-v2/agency-agents/.paperclip.yaml` 批量补全 166 条 `adapter.type: claude_local`。Agent slug 列表来自 `agency-agents/agents/*/` 目录名。
+不补 `.paperclip.yaml`。动作 1 的后端修复已使 import 从 AGENTS.md frontmatter 读取 `adapterType`，`.paperclip.yaml` 无 adapter 不影响 import。给 C 补 167 条 `.paperclip.yaml` 条目是冗余操作——添加后无声，不添加也不影响。
 
-生成格式（与 B 一致）：
-```yaml
-agents:
-  academic-anthropologist:
-    adapter:
-      type: claude_local
-  academic-geographer:
-    adapter:
-      type: claude_local
-  # ... 167 total
-```
+本动作降级为验证项：实施时核实 C 的 167 个 AGENTS.md 仍含 `adapterType: claude_local`。
 
-### 防御逻辑
+### 防御逻辑（当前生效）
 
 ```
 import_company_package
   → .paperclip.yaml 有 adapter.type?  → 用 .paperclip.yaml 的值
-  → .paperclip.yaml 无 adapter.type?  → 后端回退读 AGENTS.md frontmatter (动作1)
+  → .paperclip.yaml 无 adapter.type?  → 后端回退读 AGENTS.md frontmatter (动作1) ✅
   → 两者都无?                         → process → 403
 ```
 
 ### 验证
 
 ```bash
-grep -c "adapter:" /media/ok2049/work/work/paperclip-company-v2/agency-agents-v2/agency-agents/.paperclip.yaml
-# 预期：≥167（每个 agent 一个 adapter 块）
+grep -rl "adapterType: claude_local" \
+  /media/ok2049/work/work/paperclip-company-v2/agency-agents-v2/agency-agents/agents/*/AGENTS.md | wc -l
+# 预期：167
 ```
 
 ---
@@ -274,43 +265,41 @@ grep "MCP: registered 246 tool(s) from 3 server(s)" \
 
 ---
 
-## 动作 6：环境清理（R8）
+## 动作 6：环境清理 — 删到 0 家（R8）
 
 ### 问题
 
-- B 公司 8 个 agent（含 4 个重复，名字带 "2"）：`CEO 2`、`Lead Engineer 2`、`Code Reviewer 2`、`Release Engineer 2`
-- 幽灵 A 公司 `5412501b-68b2-4617-ba50-b649c4c13197`：123 issue、48 agent，Phase 0 实验残留
+Phase 0 实验产生 4 家公司：A-v1（`5412501b`，123 issue）、A-v2（`3d402864`）、B（`7588c82e`，8 agent 含重复）、C（`e6e64b85`）。全部是实验品，Phase A/B/C 开始时重新 import。
 
 ### 方案
 
-**清理 B 重复 agent**（通过 REST API）：
+**全部清除，一个不留。** 顺序：先清 B 的重复 agent → 再删全部公司。
+
+**Step 1：清理 B 重复 agent**（若公司还在）：
 ```bash
-# 1. 列 B 的 agents
-# 2. 删 name 含 " 2" 的 4 个重复 agent
-# 3. 验证剩余 4 个唯一 agent
+# 删 name 含 " 2" 的 4 个重复 agent（CEO 2, Lead Engineer 2, Code Reviewer 2, Release Engineer 2）
 ```
 
-**清理幽灵 A 公司**（通过 REST API，因为 delete_company 暂未注册到 MCP）：
+**Step 2：删除全部 4 家公司**（REST API，因为 delete_company 暂未注册到 MCP）：
 ```bash
-curl -X DELETE \
-  -H "Authorization: Bearer pcp_board_..." \
-  "http://127.0.0.1:3100/api/companies/5412501b-68b2-4617-ba50-b649c4c13197"
+for id in 5412501b-68b2-4617-ba50-b649c4c13197 \
+         3d402864-4cb8-4334-b376-2670abfa05e1 \
+         7588c82e-932c-4af7-9bae-01c6ce684573 \
+         e6e64b85-2177-4e0c-af5c-6f52ad6f016b; do
+  curl -s -w '%{http_code}\n' -X DELETE \
+    -H "Authorization: Bearer pcp_board_..." \
+    "http://127.0.0.1:3100/api/companies/$id"
+done
 ```
 
-**A/B/C 三家公司保留**。R8 验证标准允许"或仅保留你指定的真身"——A-v2（`3d402864`）、B（`7588c82e`）、C（`e6e64b85`）已通过联调验证，推倒重建无收益且增加重配风险。若后续决策要求推倒重建（如 Phase A 开始前统一重置），到那时再执行。
+**Step 3：Phase A/B/C 开始时重新 import + 重跑动作 3（config 自愈） + 动作 4（保活 hook）**。
 
 ### 验证
 
 ```bash
-# B agent 数 = 4（唯一 slug）
-curl -s -H "Authorization: Bearer ..." \
-  "http://127.0.0.1:3100/api/companies/7588c82e.../agents" | python3 -c \
-  "import sys,json; d=json.load(sys.stdin); print(len(d if isinstance(d,list) else d.get('agents',[])))"
-# 预期：4
-
-# 公司列表无 5412501b
-curl -s -H "Authorization: Bearer ..." \
-  "http://127.0.0.1:3100/api/companies" | grep -c "5412501b"
+# 公司列表为空（Phase 0 闭环）
+curl -s -H "Authorization: Bearer ..." "http://127.0.0.1:3100/api/companies" | \
+  python3 -c "import sys,json; d=json.load(sys.stdin); cs=d if isinstance(d,list) else d.get('companies',[]); print(len(cs))"
 # 预期：0
 ```
 
@@ -443,27 +432,24 @@ import json, urllib.request
 API='http://127.0.0.1:3100/api'
 KEY='pcp_board_e65a40681143c73cda97a250ed4d21c8eb48a43427f089ab'
 ok=True
-# 1. 公司列表：只应有 A-v1(5412501b)、A-v2(3d402864)、B(7588c82e)、C(e6e64b85)
-#    幽灵 B/C 已删，若重现则 fail
+# Phase 0 闭环后公司数应为 0；Phase A/B/C re-import 后应为 3
 req=urllib.request.Request(f'{API}/companies',headers={'Authorization':f'Bearer {KEY}'})
 cs=json.loads(urllib.request.urlopen(req,timeout=10).read())
 cs=cs if isinstance(cs,list) else cs.get('companies',[])
-names=[c.get('name','') for c in cs]
-# 检查无 GEO119-Phase-B-v2 / GEO119-Phase-C-v2 幽灵（当前应无）
-for n in names:
-    if 'GEO119-Phase-B-v2' in n or 'GEO119-Phase-C-v2' in n:
-        print(f'GHOST COMPANY: {n}'); ok=False
-# 2. B 公司 agent 数 = 4（唯一 slug，无重复）
-B_ID='7588c82e-932c-4af7-9bae-01c6ce684573'
-req=urllib.request.Request(f'{API}/companies/{B_ID}/agents',headers={'Authorization':f'Bearer {KEY}'})
-agents=json.loads(urllib.request.urlopen(req,timeout=10).read())
-agents=agents if isinstance(agents,list) else agents.get('agents',[])
-# 排除重复 agent（名字含 ' 2'）
-dupes=[a.get('name','') for a in agents if ' 2' in a.get('name','')]
-if len(dupes)>0:
-    print(f'B DUPLICATE AGENTS: {dupes}'); ok=False
-if len(agents) != 4:
-    print(f'B agent count: {len(agents)} (expected 4)'); ok=False
+# 检查幽灵（含 GEO119-Phase 前缀的残留）
+ghosts=[c for c in cs if 'GEO119-Phase' in c.get('name','') and c.get('id','') not in
+        ['3d402864-4cb8-4334-b376-2670abfa05e1','7588c82e-932c-4af7-9bae-01c6ce684573','e6e64b85-2177-4e0c-af5c-6f52ad6f016b']]
+if ghosts:
+    print(f'GHOSTS: {[(c[\"name\"],c[\"id\"][:8]) for c in ghosts]}'); ok=False
+# 检查 B agent 无重复（若 B 存在）
+for c in cs:
+    if c.get('id')=='7588c82e-932c-4af7-9bae-01c6ce684573':
+        req=urllib.request.Request(f'{API}/companies/{c[\"id\"]}/agents',headers={'Authorization':f'Bearer {KEY}'})
+        agents=json.loads(urllib.request.urlopen(req,timeout=10).read())
+        agents=agents if isinstance(agents,list) else agents.get('agents',[])
+        dupes=[a.get('name') for a in agents if ' 2' in a.get('name','')]
+        if dupes: print(f'B DUPES: {dupes}'); ok=False
+        if len(agents)!=4: print(f'B agent count: {len(agents)} (expected 4)'); ok=False
 sys.exit(0 if ok else 1)
 " 2>/dev/null
 
