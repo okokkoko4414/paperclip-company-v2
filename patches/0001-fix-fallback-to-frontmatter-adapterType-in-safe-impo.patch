@@ -1,0 +1,26 @@
+From 0cb2dde51947df4b38187fa68f5f1875ddb4400a Mon Sep 17 00:00:00 2001
+From: Paperclip Agent <ok2049@paperclip.ai>
+Date: Wed, 15 Jul 2026 18:30:40 +0800
+Subject: [PATCH] fix: fallback to frontmatter adapterType in safe imports
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+---
+ server/src/services/company-portability.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/server/src/services/company-portability.ts b/server/src/services/company-portability.ts
+index 1024a87..50dd4e7 100644
+--- a/server/src/services/company-portability.ts
++++ b/server/src/services/company-portability.ts
+@@ -2709,7 +2709,7 @@ function buildManifestFromPackageFiles(
+       reportsToSlug: asString(frontmatter.reportsTo) ?? asString(extension.reportsTo),
+       reportsToExistingAgentId: asString(extension.reportsToExistingAgentId),
+       reportsToExistingAgentSlug: asString(extension.reportsToExistingAgentSlug),
+-      adapterType: asString(extensionAdapter?.type) ?? "process",
++      adapterType: asString(extensionAdapter?.type) ?? asString(frontmatter.adapterType) ?? "process",
+       adapterConfig,
+       runtimeConfig,
+       permissions: extensionPermissions ?? {},
+-- 
+2.43.0
+
