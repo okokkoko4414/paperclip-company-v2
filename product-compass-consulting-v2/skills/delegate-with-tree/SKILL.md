@@ -34,7 +34,7 @@ CEO (top-level leader)
 2. **Child Issue assignee = executor** — the individual contributor doing the work.
 3. **Parent Issue must stay `todo` or `in_progress`** — `backlog` status will not trigger wake-on-children-complete.
 4. **All child Issues must be `done` or `cancelled`** before the parent assignee is woken for review. A single child completing is not enough.
-5. **Parent Issue must not be marked `done`** until all children are done AND the parent assignee has reviewed all deliverables.
+5. **Parent Issue must not be marked `done`** until all children are done AND the parent assignee has reviewed all deliverables. **⚠️ After parent assignee review, it must be marked `in_review` and escalated to board (local-board / 峰哥) for final approval — agents (incl. CEO/VP) have NO right to self-mark `done` (GRAPH.md rule 6). Only board's `done` closes the issue.**
 
 ## When to Use
 

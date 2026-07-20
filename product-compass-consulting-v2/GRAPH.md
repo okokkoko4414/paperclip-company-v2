@@ -196,6 +196,9 @@ CEO（顶层领导）
 5. **父 issue 在子 issue 完成并审查前不得标记 done**
 6. **⚠️【OPC 改造 V25.2 新增】board 审批闸门**：任何 issue 进入 `done` 前，**必须经 board（峰哥/local-board 账号）审批**。智能体（含 CEO/VP）无权自标 `done`——子 issue 完成后回流到 VP 审查，VP 标记 `in_review` 交 board 终裁（comment 固化裁决 + reviewer 收尾），board 裁决后才可 `done`。回流链修正为：`child done → VP 审查 → 标 in_review → board 审批 → done → CEO 汇总`
 7. **⚠️【OPC 改造 V25.2 新增】Phase 边界隔离**：本模板用于 OPC 多 Phase 公司（Phase A/B/C），**上一 Phase 全部交付物经 board 审批通过，才解锁下一 Phase 的 root issue**；禁止跨 Phase 自动激活子 issue。委派创建子 issue 时若属下一 Phase，须显式挂起（`todo`）直至上一 Phase 审批闸门通过。
+8. **⚠️【OPC 改造 V25.10 新增】raise 三级上报（P5~P8）**：agent 遇预算超阈/范围变更/技术栈例外/架构偏差，须显式 raise（comment/issue）→ **beta 预筛 → 属 board 裁定事项交 local-board 终裁**；VP 仅可预警，无权自决。P7 技术栈例外铁律#16 零例外，board 一律拒（标准未覆盖才 rr 报峰哥）。
+9. **⚠️【OPC 改造 V25.10 闭环】board 闸门须下沉**：本规则6的 board 终裁必须写入各管理者 AGENTS.md 的 Review Responsibility 段（"标 in_review 交 board" 替代 "mark parent done"）及 delegate-with-tree skill，仅在此文档声明无效——agent 运行时只认 AGENTS.md。
+10. **⚠️【OPC 改造 V25.12 铁律级 P1 闸门】契约未过不得点火**：T2 需求理解契约（P1）未经 board（local-board / 峰哥）审批通过前，**禁止**建 Root Issue、禁止触发 heartbeat、禁止派发任何子任务。此约束为机器可读硬墙——CEO/VP 在契约审批状态=approved 之前不得执行 T3~T21 任何动作；违反即熔断。
 
 ---
 

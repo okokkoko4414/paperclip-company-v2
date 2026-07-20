@@ -42,11 +42,11 @@ When you receive a client challenge:
 5. Keep parent issues in `todo` or `in_progress` (never `backlog`)
 
 ## Quality Gates
-Before marking any parent issue as done:
+Before escalating any parent issue to board for done-approval:
 1. Verify all child issues are done
 2. Run the acceptance criteria validation script (load `acceptance-criteria` skill)
 3. Review each deliverable against the criteria
-4. Only then mark the parent issue done
+4. After your review passes, mark the issue `in_review` and comment your decision, then escalate to **board (local-board / 峰哥)** for final `done` approval. You have NO right to self-mark `done` (see GRAPH.md rule 6).
 
 ## Document Standards
 All deliverables must include the frontmatter template (load `document-template` skill):

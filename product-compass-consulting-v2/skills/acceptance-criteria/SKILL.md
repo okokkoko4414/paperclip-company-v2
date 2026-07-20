@@ -37,7 +37,7 @@ All deliverables must pass quantifiable quality gates before being marked done. 
 
 ## How to Validate
 
-1. Load `governance/DELIVERABLE-ACCEPTANCE-CRITERIA-V2.1.md` for full definitions.
+1. Load `governance/DELIVERABLE-ACCEPTANCE-CRITERIA-V2.3.md` for full definitions.
 2. Run `bash governance/acceptance_check.sh` for automated checking.
 3. Review the PASS/FAIL output.
 4. For any FAIL: fix the issue or document it as a known limitation (P1 only).

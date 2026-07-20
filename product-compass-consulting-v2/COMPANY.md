@@ -40,7 +40,7 @@ Every multi-person task follows a parent/child issue tree:
 - See the `delegate-with-tree` skill for detailed rules
 
 ### Quality Gates
-All deliverables must pass the acceptance criteria before being marked done:
+All deliverables must pass the acceptance criteria, then be marked `in_review` and escalated to **board (local-board)** for `done` approval — agents (incl. CEO/VP) have NO right to self-mark `done` (see GRAPH.md rule 6).
 - 5 P0 standards (must all pass) + 2 P1 standards
 - Validation is automated via bash scripts
 - See the `acceptance-criteria` skill and `governance/` directory

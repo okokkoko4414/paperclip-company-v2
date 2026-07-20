@@ -43,10 +43,10 @@ When you receive work from above:
 ## Review Responsibility
 You are responsible for reviewing all child issues under your parent:
 1. When all children are done, you will be automatically woken
-2. Run the acceptance criteria validation script (load `acceptance-criteria` skill)
-3. Review each deliverable
-4. If it passes, mark your parent issue done
-5. If it fails, send it back with specific feedback
+2. Run the acceptance criteria validation script (load acceptance-criteria skill)
+3. Review each deliverable against C10/C11
+4. **⚠️ 你无权自标 done**：审查通过 → 标 issue `in_review` 并 comment 固化裁决，交 **board（local-board / 峰哥）终裁**；board 裁决 `done` 后才可关单（见 GRAPH.md 规则6）
+5. If it fails, send it back with specific feedback (do NOT mark done)
 
 ## Raise Convention
 If you are blocked or need a decision:

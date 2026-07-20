@@ -1,1 +1,147 @@
 schema: paperclip/v1
+
+agents:
+  assumption-analyst:
+    adapter:
+      type: claude_local
+  battlecard-writer:
+    adapter:
+      type: claude_local
+  brand-specialist:
+    adapter:
+      type: claude_local
+  business-model-analyst:
+    adapter:
+      type: claude_local
+  career-specialist:
+    adapter:
+      type: claude_local
+  ceo:
+    adapter:
+      type: claude_local
+  competitive-analyst:
+    adapter:
+      type: claude_local
+  competitive-intel-analyst:
+    adapter:
+      type: claude_local
+  data-generator:
+    adapter:
+      type: claude_local
+  director-data-analytics:
+    adapter:
+      type: claude_local
+  director-gtm:
+    adapter:
+      type: claude_local
+  director-market-research:
+    adapter:
+      type: claude_local
+  director-marketing:
+    adapter:
+      type: claude_local
+  director-toolkit:
+    adapter:
+      type: claude_local
+  editor:
+    adapter:
+      type: claude_local
+  experiment-designer:
+    adapter:
+      type: claude_local
+  experimentation-analyst:
+    adapter:
+      type: claude_local
+  feature-analyst:
+    adapter:
+      type: claude_local
+  growth-strategist:
+    adapter:
+      type: claude_local
+  gtm-strategist:
+    adapter:
+      type: claude_local
+  ideation-specialist:
+    adapter:
+      type: claude_local
+  journey-mapper:
+    adapter:
+      type: claude_local
+  legal-specialist:
+    adapter:
+      type: claude_local
+  market-sizing-analyst:
+    adapter:
+      type: claude_local
+  marketing-strategist:
+    adapter:
+      type: claude_local
+  meeting-analyst:
+    adapter:
+      type: claude_local
+  metrics-designer:
+    adapter:
+      type: claude_local
+  north-star-analyst:
+    adapter:
+      type: claude_local
+  okr-specialist:
+    adapter:
+      type: claude_local
+  ost-analyst:
+    adapter:
+      type: claude_local
+  persona-specialist:
+    adapter:
+      type: claude_local
+  prd-writer:
+    adapter:
+      type: claude_local
+  pricing-strategist:
+    adapter:
+      type: claude_local
+  prioritization-specialist:
+    adapter:
+      type: claude_local
+  qa-specialist:
+    adapter:
+      type: claude_local
+  release-manager:
+    adapter:
+      type: claude_local
+  risk-analyst:
+    adapter:
+      type: claude_local
+  roadmap-specialist:
+    adapter:
+      type: claude_local
+  sentiment-analyst:
+    adapter:
+      type: claude_local
+  sprint-manager:
+    adapter:
+      type: claude_local
+  sql-analyst:
+    adapter:
+      type: claude_local
+  stakeholder-analyst:
+    adapter:
+      type: claude_local
+  story-writer:
+    adapter:
+      type: claude_local
+  user-researcher:
+    adapter:
+      type: claude_local
+  vision-strategist:
+    adapter:
+      type: claude_local
+  vp-discovery:
+    adapter:
+      type: claude_local
+  vp-execution:
+    adapter:
+      type: claude_local
+  vp-strategy:
+    adapter:
+      type: claude_local

@@ -30,3 +30,12 @@ When a VP or Director is blocked and cannot proceed without a decision from abov
 1. **Report within 1 heartbeat cycle.** If you are blocked for longer than one heartbeat period, you must escalate.
 2. **Never wait silently for a deadline.** If you can see you will miss a deadline, escalate immediately.
 3. **CEO must respond within the next heartbeat.** After receiving an escalation, the CEO acknowledges and responds within one heartbeat cycle.
+
+## Board Routing (OPC V25.10)
+
+When an agent encounters **budget over-threshold / scope change / tech stack exception / architecture deviation** (P5~P8 in SOP V25.10 §3.1):
+
+1. **Explicit raise** — comment or issue, stating the specific exception.
+2. **Escalation chain**: `agent → manager (early warning) → beta pre-screen → local-board final decision`.
+3. **VP/Director may only warn, never self-approve** — P5~P7 must NOT be approved by VP without board.
+4. **Deterministic cases** (mechanically verifiable) — beta self-rules. **Non-deterministic cases** — rr (research) then report to 峰哥.
